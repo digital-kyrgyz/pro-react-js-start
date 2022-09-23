@@ -1,12 +1,46 @@
-import logo from "./logo.svg";
+import { createElement, Fragment } from "react";
+import "./style.scss";
 
 function App() {
+  function Button(props) {
+    return <button>{props.text}</button>;
+  }
+
+  const todos = ["todo1", "todo2", "todo3"];
+
+  const searchFunction = () => {
+    alert("Hello Melis");
+  };
+  const melis = "Melis";
+
+  const h1 = createElement("h1", null, "MELIS.KG");
+  const ul = createElement(
+    "ul",
+    null,
+    todos.map((todo) => createElement("li", null, todo))
+  );
+  const button = createElement(
+    Button,
+    {
+      text: "Button Text",
+    },
+    null
+  );
+  return createElement(
+    "main",
+    {
+      className: "test",
+      id: "main",
+    },
+    h1,
+    ul,
+    button
+  );
+
   return (
-    <div className="App">
-      <h1>{process.env.NODE_ENV}</h1>
-      <h2>{process.env.REACT_APP_API_URL}</h2>
-      {console.log(process.env.REACT_APP_API_URL)}
-    </div>
+    <>
+      <Button />
+    </>
   );
 }
 
